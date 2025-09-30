@@ -251,7 +251,7 @@ public class Menu {
 				entrada = leia.nextLine();
 				tipo = entrada.isEmpty() ? tipo : Integer.parseInt(entrada);
 				
-				System.out.printf(Cores.TEXT_PURPLE_BOLD +"O tipo de encadernação atual do produto é %s\nNovo tipo de encadernação (Precione Enter para manter o nome atual): ", formato);
+				System.out.printf(Cores.TEXT_PURPLE_BOLD +"O formato atual do produto é %s\nNovo tipo de encadernação (Precione Enter para manter o nome atual): ", formato);
 				entrada = leia.nextLine();
 				formato = entrada.isEmpty() ? formato : Integer.parseInt(entrada);
 				papelariaController
