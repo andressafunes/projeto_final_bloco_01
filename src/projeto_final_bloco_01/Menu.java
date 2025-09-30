@@ -33,8 +33,9 @@ public class Menu {
 			System.out.println("      1 - Cadastrar Produto                  ");
 			System.out.println("      2 - Listar Todos os produtos           ");
 			System.out.println("      3 - Buscar Produto por ID              ");
-			System.out.println("      4 - Atualizar Dados do Produto         ");
-			System.out.println("      5 - Apagar Produto                     ");
+			System.out.println("      4 - Buscar Produto por Nome            ");
+			System.out.println("      5 - Atualizar Dados do Produto         ");
+			System.out.println("      6 - Apagar Produto                     ");
 			System.out.println("      0 - Sair                               ");
 			System.out.println("                                             ");
 			System.out.println("*********************************************");
@@ -48,7 +49,7 @@ public class Menu {
 			} catch (InputMismatchException e) {
 				opcao = -1;
 				System.out.println(Cores.TEXT_RED_BOLD
-						+ "\nDigite um número inteiro entre 0 e 5");
+						+ "\nDigite um número inteiro entre 0 e 6");
 				leia.nextLine();
 			}
 
@@ -84,20 +85,30 @@ public class Menu {
 
 				keyPress();
 				break;
+				
 			case 4:
+				System.out.println(Cores.TEXT_PURPLE_UNDERLINED + "Buscar por Nome" + Cores.TEXT_RESET);
+
+				procurarPorNome();
+
+				keyPress();
+				break;
+				
+			case 5:
 				System.out.println(Cores.TEXT_PURPLE_UNDERLINED + "Atualizar dados do produto\n" + Cores.TEXT_RESET);
 
 				atualizarProduto();
 				
 				keyPress();
 				break;
-			case 5:
+			case 6:
 				System.out.println(Cores.TEXT_PURPLE_UNDERLINED + "Apagar o produto\n" + Cores.TEXT_RESET);
 
 				apagarProduto();
 
 				keyPress();
 				break;
+								
 			default:
 				System.out.println(Cores.TEXT_RED_BOLD + "Opção Inválida!" + Cores.TEXT_RESET);
 
@@ -251,7 +262,7 @@ public class Menu {
 				entrada = leia.nextLine();
 				tipo = entrada.isEmpty() ? tipo : Integer.parseInt(entrada);
 				
-				System.out.printf(Cores.TEXT_PURPLE_BOLD +"O formato atual do produto é %s\nNovo tipo de encadernação (Precione Enter para manter o nome atual): ", formato);
+				System.out.printf(Cores.TEXT_PURPLE_BOLD +"O formato atual do produto é %s\nNovo formato (Precione Enter para manter o nome atual): ", formato);
 				entrada = leia.nextLine();
 				formato = entrada.isEmpty() ? formato : Integer.parseInt(entrada);
 				papelariaController
@@ -289,6 +300,14 @@ public class Menu {
 		} else {
 			System.out.printf(Cores.TEXT_RED_BOLD +"\nO produto de ID %d não foi encontrado!", id);
 		}
+	}
+	
+	private static void procurarPorNome() {
+		
+		System.out.print(Cores.TEXT_PURPLE_BOLD + "\nDigite o nome do produto: ");
+		String nome = leia.nextLine();
+		
+		papelariaController.listarPorNome(nome);
 	}
 
 }

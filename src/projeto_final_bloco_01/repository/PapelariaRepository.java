@@ -10,5 +10,6 @@ public interface PapelariaRepository {
 	public void buscarPorId (int id);
 	public void atualizar (Produto produto);
 	public void apagar (int id);
+	public void listarPorNome(String titular);
 
 }
