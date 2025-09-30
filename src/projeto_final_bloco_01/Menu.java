@@ -3,6 +3,9 @@ package projeto_final_bloco_01;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import projeto_final_bloco_01.model.Acessorios;
+import projeto_final_bloco_01.model.CadernoAgenda;
+import projeto_final_bloco_01.model.Produto;
 import projeto_final_bloco_01.util.Cores;
 
 public class Menu {
@@ -10,6 +13,11 @@ public class Menu {
 	private static final Scanner leia = new Scanner(System.in);
 
 	public static void main(String[] args) {
+				
+		Produto pc = new CadernoAgenda(1, "Naruto", 1, 1, 20, 35.00f, 200, 1);
+		pc.visualizador();
+		Produto pa = new Acessorios(2,"Controle PS2", 2, 3, 15, 2.50f, 1, 1);
+		pa.visualizador();
 		
 		int opcao;
 
@@ -114,5 +122,7 @@ public class Menu {
 		System.out.println(Cores.TEXT_RESET + "\n\nPrecione Enter para continuar...");
 		leia.nextLine();
 	}
+	
+	
 
 }
